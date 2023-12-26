@@ -8,7 +8,7 @@ const Appointment = () => {
         phone: '',
         dept:'',
         doc:'',
-        date:null,
+        date:'',
         msg:''
     });
     const handleAppointmentFormSubmit = (e) =>{
@@ -24,6 +24,21 @@ const Appointment = () => {
         })
         console.log(formData);
     }
+ 
+    const handleDeptChange = (selected) =>{
+      setFormData({
+        ...formData,
+        dept: selected,
+      })
+    }
+
+    const handleDocChange = (selected) =>{
+      setFormData({
+        ...formData,
+        doc: selected,
+    })
+  }
+
 
   return (
     <>
@@ -65,23 +80,23 @@ const Appointment = () => {
                         <div
                           className="nice-select form-control wide"
                           tabIndex={0}
-                          value={formData.dept} name="dept" onChange={handleInputChange}
+                          value={formData.dept} name="dept"
                         >
                           <span className="current" >Department</span>
                           <ul className="list"  >
                             <li data-value={1} className="option selected ">
                               Department
                             </li>
-                            <li data-value={2} value="Cardiac Clinic" className="option">
+                            <li data-value={2} value="Cardiac Clinic" className="option" onClick={()=>handleDeptChange('Cardiac Clinic')}>
                               Cardiac Clinic
                             </li>
-                            <li data-value={3} value="Neurology" className="option">
+                            <li data-value={3} value="Neurology" className="option" onClick={()=>handleDeptChange('Neurology')}>
                               Neurology
                             </li>
-                            <li data-value={4} value="Dentistry" className="option">
+                            <li data-value={4} value="Dentistry" className="option" onClick={()=>handleDeptChange('Dentistry')}>
                               Dentistry
                             </li>
-                            <li data-value={5} value="Gastroenterology" className="option">
+                            <li data-value={5} value="Gastroenterology" className="option" onClick={()=>handleDeptChange('Gastroenterology')}>
                               Gastroenterology
                             </li>
                           </ul>
@@ -93,20 +108,19 @@ const Appointment = () => {
                         <div
                           className="nice-select form-control wide"
                           tabIndex={0}
-                          onChange={handleInputChange} 
                         >
                           <span className="current">Doctor</span>
                           <ul className="list">
                             <li data-value={1} className="option selected ">
                               Doctor
                             </li>
-                            <li data-value={2} value="Dr. Akther Hossain" className="option">
+                            <li data-value={2} value="Dr. Akther Hossain" className="option" onClick={()=>handleDocChange('Dr. Akther Hossain')}>
                               Dr. Akther Hossain
                             </li>
-                            <li data-value={3} value="Dr. Dery Alex" className="option">
+                            <li data-value={3} value="Dr. Dery Alex" className="option" onClick={()=>handleDocChange('Dr. Dery Alex')}>
                               Dr. Dery Alex
                             </li>
-                            <li data-value={4} value="Dr. Jovis Karon" className="option">
+                            <li data-value={4} value="Dr. Jovis Karon" className="option" onClick={()=>handleDocChange('Dr. Jovis Karon')}>
                               Dr. Jovis Karon
                             </li>
                           </ul>
