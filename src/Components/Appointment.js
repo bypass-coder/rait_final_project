@@ -22,7 +22,6 @@ const Appointment = () => {
             ...formData,
             [name]: value,
         })
-        console.log(formData);
     }
  
     const handleDeptChange = (selected) =>{
